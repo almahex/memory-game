@@ -1,0 +1,132 @@
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  color: #000d0f;
+  font-size: 14px;
+  line-height: 1.2em;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0; 
+}
+
+/*
+ *
+ * Header
+ *
+ */
+
+header {
+  text-align: center;
+  margin: 40px 0;
+}
+
+/*
+ *
+ * Main
+ *
+ */
+
+main {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+ *
+ * Score
+ *
+ */
+
+.score {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+ *
+ * Board
+ *
+ */
+
+.board {
+  margin: 3em 0;
+}
+
+.card {
+  width: 30%;
+  box-shadow: 5px 5px 1px #e6e6e6;
+  border: 1px solid #cecece;
+  padding: 5em 0;
+  text-align: center;
+}
+
+@keyframes flipInY {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+  }
+}
+
+.flipInY {
+  backface-visibility: visible !important;
+  animation-name: flipInY;
+}
+
+.back-card {
+  display: none;
+}
+
+/*
+ *
+ * Footer
+ *
+ */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5em 0 3em 0;
+  text-align: center;
+}
+
+.view-source {
+  width: 40%;
+  align-self: center;
+  color: #4183c4;
+  font-weight: 300;
+  text-decoration: none;
+  border-top: 1px solid #ddd;
+  margin: 1.3em 0 0;
+  padding: 1em 0 0;
+}
