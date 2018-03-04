@@ -34,7 +34,7 @@ header {
  */
 
 main {
-  width: 70%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -56,30 +56,9 @@ main {
 
 /*
  *
- * Board
+ * Animations
  *
  */
-
-.board {
-  margin: 3em 0;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-}
-
-.card {
-  width: 30%;
-  box-shadow: 5px 5px 1px #e6e6e6;
-  border: 1px solid #cecece;
-  padding: 5em;
-  text-align: center;
-  margin-right: 2em;
-}
-
-.card:last-of-type {
-  margin-right: 0;
-}
 
 @keyframes flipInY {
   from {
@@ -112,8 +91,114 @@ main {
   animation-name: flipInY;
 }
 
+
+@keyframes shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+    background: red;
+    color: black;
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  animation-name: shake;
+}
+
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+    background: blue;
+  }
+}
+
+.tada {
+  animation-name: tada;
+}
+
+/*
+ *
+ * Board
+ *
+ */
+
+.board {
+  margin: 3em 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.card {
+  width: 20%;
+  box-shadow: 5px 5px 1px #e6e6e6;
+  border: 1px solid #cecece;
+  padding: 5em;
+  text-align: center;
+  margin: 2em;
+}
+
+.back-card {
+  background: #02ccba;
+  color: transparent;
+  cursor: pointer;
+}
+
 .front-card {
-  display: none;
+  animation: flipInY 2s;
+  background: #fff;
+}
+
+.card {
+}
+
+.match {
+  animation: tada 2s;
+
+}
+
+.fail {
+  animation: shake 1s;
 }
 
 /*
