@@ -4,6 +4,8 @@ body {
   font-size: 14px;
   line-height: 1.2em;
   width: 660px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1,
@@ -58,14 +60,17 @@ main {
   font-size: 18px;
 }
 
-.refresh {
+.refresh,
+.inner-refresh {
   cursor: pointer;
 }
 
 .moves {
   padding-left: 2em;
-
 }
+
+
+
 
 /*
  *
@@ -243,6 +248,17 @@ main {
   animation: shake 1s;
 }
 
+svg:not(:root).svg-inline--fa {
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+}
+
+.fa-sync-alt {
+  width: 20px;
+  height: 20px;
+}
+
 /*
  *
  * Footer
@@ -264,5 +280,5 @@ footer {
   text-decoration: none;
   border-top: 1px solid #ddd;
   margin: 1.3em 0 0;
-  padding: 1em 0 0;
+  padding: 1em 0;
 }

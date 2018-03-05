@@ -40,7 +40,7 @@ function setUpBoard() {
 		const newElement = document.createElement('div');
 		const innerNewElement = document.createElement('div');
 		newElement.classList.add('card', 'back-card');
-		innerNewElement.classList.add('fas', shuffledCards[i], 'fa-7x');
+		innerNewElement.classList.add('fas', shuffledCards[i], 'fa-fw');
 		newElement.appendChild(innerNewElement);
        	fragment.appendChild(newElement);
     }
