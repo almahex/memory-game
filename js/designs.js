@@ -79,9 +79,11 @@ function youWon() {
 	console.log(message);
     let board = document.getElementsByClassName('board')[0];
     board.classList.add('win');
-	board.innerHTML = `<p class="win-message">${message}</p></br>
-					   <p class="win-message">Do you want to play again?</p>
-					   <button class="play-again">Play</button>`;
+	board.innerHTML = `<div class="win-message">
+						   <p class="inner-win-message">${message}</p></br>
+						   <p class="inner-win-message">Do you want to play again?</p>
+						   <button class="play-again">Play</button>
+					   </div>`;
 	return board;
 }
 

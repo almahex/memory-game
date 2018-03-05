@@ -63,13 +63,12 @@ main {
 .refresh,
 .inner-refresh {
   cursor: pointer;
+  font-size: 18px;
 }
 
 .moves {
   padding-left: 2em;
 }
-
-
 
 
 /*
@@ -179,12 +178,12 @@ main {
  */
 
 .play-again {
-  width: 24%;
   padding: 24px;
   text-transform: uppercase;
   margin: 0.5em 0;
   font-size: 16px;
   border-color: transparent;
+  align-items: center;
 }
 
 .play-again:hover {
@@ -211,7 +210,8 @@ main {
 
 .win-message {
   width: 100%;
-  margin: 0.5em 1em;
+  align-self: flex-start;
+  margin-top: 2em;
 }
 
 .card {
