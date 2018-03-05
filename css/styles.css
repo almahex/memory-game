@@ -26,10 +26,16 @@ p {
  *
  */
 
-header {
+ header {
+    margin: 5em 0 3em;
+    padding: 2em;
+    border-bottom: 2px solid #fd9f15;
+ }
+
+.title {
   text-align: center;
-  margin: 3.5em 0 2em;
-  font-size: 25px;
+  font-size: 47px;
+  font-weight: 100;
 }
 
 /*
@@ -58,6 +64,7 @@ main {
   justify-content: space-between;
   margin: 0 auto 2em auto;
   font-size: 18px;
+  padding: 0.25em 0;
 }
 
 .refresh,
@@ -67,7 +74,8 @@ main {
 }
 
 .moves {
-  padding-left: 2em;
+  font-weight: 400;
+  padding-top: 0.15em;
 }
 
 
@@ -113,7 +121,7 @@ main {
   from,
   to {
     transform: translate3d(0, 0, 0);
-    background: #f3423e;
+    background: #e63412;
     color: black;
   }
 
@@ -163,7 +171,7 @@ main {
 
   to {
     transform: scale3d(1, 1, 1);
-    background: #fddb15;
+    background: #fd9f15;
   }
 }
 
@@ -177,18 +185,22 @@ main {
  *
  */
 
+.score.win {
+  display: none;
+}
+
 .play-again {
   padding: 24px;
   text-transform: uppercase;
   margin: 0.5em 0;
-  font-size: 16px;
-  border-color: transparent;
   align-items: center;
+  color: #fd9f15;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .play-again:hover {
-  text-decoration: underline;
-  color: #212121;
   cursor: pointer;
 }
 
@@ -202,16 +214,31 @@ main {
   align-items: center;
 }
 
+.board.win {
+  align-content: flex-start;
+}
+
 .win {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
 }
 
-.win-message {
+.congrats {
+  font-size: 30px;
+  font-weight: 300;
   width: 100%;
-  align-self: flex-start;
-  margin-top: 2em;
+}
+
+.win-message, 
+.stars {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.stars {
+  color: #fd9f15;
+  margin-bottom: 1em;
 }
 
 .card {
@@ -254,9 +281,10 @@ svg:not(:root).svg-inline--fa {
   height: 80px;
 }
 
-.fa-sync-alt {
+svg:not(:root).svg-inline--fa.fa-sync-alt {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 /*
@@ -266,19 +294,12 @@ svg:not(:root).svg-inline--fa {
  */
 
 footer {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  margin: 1.5em 0 3em 0;
+  margin: 4em auto 3em auto;
+  padding: 2em;
   text-align: center;
-}
-
-.view-source {
-  width: 40%;
-  align-self: center;
-  color: #4183c4;
-  font-weight: 300;
-  text-decoration: none;
   border-top: 1px solid #ddd;
-  margin: 1.3em 0 0;
-  padding: 1em 0;
+  align-self: center;
 }

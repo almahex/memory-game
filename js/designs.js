@@ -63,10 +63,14 @@ function flipBack(card) {
 }
 
 function restartGame() {
-	boardCards = document.getElementsByClassName('card');
+	let boardCards = document.getElementsByClassName('card');
+	let scorePanel = document.getElementsByClassName('score')[0];
 	for (let i=0; i<boardCards.length; i++) {
 		boardCards[i].classList.remove('front-card');
 		boardCards[i].classList.add('back-card');
+	}
+	if (scorePanel.classList.contains('win')) {
+		scorePanel.classList.remove('win');
 	}
 	flippedPair = [];
 	totalMoves = 0;
@@ -74,16 +78,60 @@ function restartGame() {
 	showMoves();
 }
 
+function getStars() {
+	const totalStars = document.createElement('div');
+	totalStars.classList.add('stars');
+	if (totalMoves <= 10) {
+		totalStars.innerHTML = `<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>`;
+	} else if (totalMoves > 10 && totalMoves <= 14) {
+		totalStars.innerHTML = `<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="far fa-star"></i>`;
+	} else if (totalMoves > 14 && totalMoves <= 20) {
+		totalStars.innerHTML = `<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="far fa-star"></i>
+								<i class="far fa-star"></i>`;
+	} else if (totalMoves > 20 && totalMoves <= 28) {
+		totalStars.innerHTML = `<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="far fa-star"></i>
+								<i class="far fa-star"></i>
+								<i class="far fa-star"></i>`;
+	} else {
+		totalStars.innerHTML = `<i class="fas fa-star"></i>
+								<i class="far fa-star"></i>
+								<i class="far fa-star"></i>
+								<i class="far fa-star"></i>
+								<i class="far fa-star"></i>`;
+	}
+	return totalStars;
+}
+
 function youWon() {
-	let message = `Congratulations! You won the game with a total of ${totalMoves} Moves.`;
+	let message = `You finished the game with a total of ${totalMoves} moves.`;
 	console.log(message);
+	let stars = getStars();
     let board = document.getElementsByClassName('board')[0];
+    let scorePanel = document.getElementsByClassName('score')[0];
     board.classList.add('win');
 	board.innerHTML = `<div class="win-message">
+						   <p class="inner-win-message congrats">Congratulations!</p></br>
 						   <p class="inner-win-message">${message}</p></br>
+					   </div>`
+	board.appendChild(stars);
+	board.innerHTML += `<div class="win-message">
 						   <p class="inner-win-message">Do you want to play again?</p>
-						   <button class="play-again">Play</button>
+						   <div class="play-again">Play</div>
 					   </div>`;
+	scorePanel.classList.add('win');
 	return board;
 }
 
